@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,48 @@
     <meta name="keywords" content="tiago segato, professor, figma, html, css, ia, inteligência artificial, curso, curso em vídeo, youtube, javascript, design, mobile, swift, canva, landing page">
     <meta name="author" content="Tiago Segato">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="img/logo-tiagosegato.ico">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="assets/logo-tiagosegato.ico">
+
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Sem JavaScript: mostra o conteúdo (sem animação) e esconde o botão de tema -->
+    <noscript>
+        <style>
+            .reveal { opacity: 1; transform: none; }
+            .theme-toggle { display: none; }
+        </style>
+    </noscript>
+
+    <!-- JavaScript (no head para aplicar o tema antes da página aparecer) -->
+    <script src="script.js"></script>
 </head>
 <body>
+    <!-- Ícones (SVG): Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com - License: https://fontawesome.com/license/free (Icons: CC BY 4.0)
+         Logo "C" do Canva: vetorizada a partir da imagem da marca (marca registrada da Canva Pty Ltd) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <defs>
+            <g id="i-linkedin-in"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></g>
+            <g id="i-github"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></g>
+            <g id="i-youtube"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></g>
+            <g id="i-tiktok"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></g>
+            <g id="i-facebook-f"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></g>
+            <g id="i-instagram"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></g>
+            <g id="i-html5"><path d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z"/></g>
+            <g id="i-css3-alt"><path d="M0 32l34.9 395.8L192 480l157.1-52.2L384 32H0zm313.1 80l-4.8 47.3L193 208.6l-.3.1h111.5l-12.8 146.6-98.2 28.7-98.8-29.2-6.4-73.9h48.9l3.2 38.3 52.6 13.3 54.7-15.4 3.7-61.6-166.3-.5v-.1l-.2.1-3.6-46.3L193.1 162l6.5-2.7H76.7L70.9 112h242.2z"/></g>
+            <g id="i-js-square"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM243.8 381.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z"/></g>
+            <g id="i-figma"><path d="M14 95.7924C14 42.8877 56.8878 0 109.793 0H274.161C327.066 0 369.954 42.8877 369.954 95.7924C369.954 129.292 352.758 158.776 326.711 175.897C352.758 193.019 369.954 222.502 369.954 256.002C369.954 308.907 327.066 351.795 274.161 351.795H272.081C247.279 351.795 224.678 342.369 207.666 326.904V415.167C207.666 468.777 163.657 512 110.309 512C57.5361 512 14 469.243 14 416.207C14 382.709 31.1945 353.227 57.2392 336.105C31.1945 318.983 14 289.5 14 256.002C14 222.502 31.196 193.019 57.2425 175.897C31.196 158.776 14 129.292 14 95.7924ZM176.288 191.587H109.793C74.2172 191.587 45.3778 220.427 45.3778 256.002C45.3778 291.44 73.9948 320.194 109.381 320.416C109.518 320.415 109.655 320.415 109.793 320.415H176.288V191.587ZM207.666 256.002C207.666 291.577 236.505 320.417 272.081 320.417H274.161C309.737 320.417 338.576 291.577 338.576 256.002C338.576 220.427 309.737 191.587 274.161 191.587H272.081C236.505 191.587 207.666 220.427 207.666 256.002ZM109.793 351.795C109.655 351.795 109.518 351.794 109.381 351.794C73.9948 352.015 45.3778 380.769 45.3778 416.207C45.3778 451.652 74.6025 480.622 110.309 480.622C146.591 480.622 176.288 451.186 176.288 415.167V351.795H109.793ZM109.793 31.3778C74.2172 31.3778 45.3778 60.2173 45.3778 95.7924C45.3778 131.368 74.2172 160.207 109.793 160.207H176.288V31.3778H109.793ZM207.666 160.207H274.161C309.737 160.207 338.576 131.368 338.576 95.7924C338.576 60.2173 309.737 31.3778 274.161 31.3778H207.666V160.207Z"/></g>
+            <g id="i-swift"><path d="M448 156.09c0-4.51-.08-9-.2-13.52a196.31 196.31 0 0 0-2.58-29.42 99.62 99.62 0 0 0-9.22-28A94.08 94.08 0 0 0 394.84 44a99.17 99.17 0 0 0-28-9.22 195 195 0 0 0-29.43-2.59c-4.51-.12-9-.17-13.52-.2H124.14c-4.51 0-9 .08-13.52.2-2.45.07-4.91.15-7.37.27a171.68 171.68 0 0 0-22.06 2.32 103.06 103.06 0 0 0-21.21 6.1q-3.46 1.45-6.81 3.12a94.66 94.66 0 0 0-18.39 12.32c-1.88 1.61-3.69 3.28-5.43 5A93.86 93.86 0 0 0 12 85.17a99.45 99.45 0 0 0-9.22 28 196.31 196.31 0 0 0-2.54 29.4c-.13 4.51-.18 9-.21 13.52v199.83c0 4.51.08 9 .21 13.51a196.08 196.08 0 0 0 2.58 29.42 99.3 99.3 0 0 0 9.22 28A94.31 94.31 0 0 0 53.17 468a99.47 99.47 0 0 0 28 9.21 195 195 0 0 0 29.43 2.59c4.5.12 9 .17 13.52.2H323.91c4.51 0 9-.08 13.52-.2a196.59 196.59 0 0 0 29.44-2.59 99.57 99.57 0 0 0 28-9.21A94.22 94.22 0 0 0 436 426.84a99.3 99.3 0 0 0 9.22-28 194.79 194.79 0 0 0 2.59-29.42c.12-4.5.17-9 .2-13.51V172.14c-.01-5.35-.01-10.7-.01-16.05zm-69.88 241c-20-38.93-57.23-29.27-76.31-19.47-1.72 1-3.48 2-5.25 3l-.42.25c-39.5 21-92.53 22.54-145.85-.38A234.64 234.64 0 0 1 45 290.12a230.63 230.63 0 0 0 39.17 23.37c56.36 26.4 113 24.49 153 0-57-43.85-104.6-101-141.09-147.22a197.09 197.09 0 0 1-18.78-25.9c43.7 40 112.7 90.22 137.48 104.12-52.57-55.49-98.89-123.94-96.72-121.74 82.79 83.42 159.18 130.59 159.18 130.59 2.88 1.58 5 2.85 6.73 4a127.44 127.44 0 0 0 4.16-12.47c13.22-48.33-1.66-103.58-35.31-149.2C329.61 141.75 375 229.34 356.4 303.42c-.44 1.73-.95 3.4-1.44 5.09 38.52 47.4 28.04 98.17 23.13 88.59z"/></g>
+            <g id="i-apple"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></g>
+            <g id="i-robot"><path d="M320 0c17.7 0 32 14.3 32 32V96H472c39.8 0 72 32.2 72 72V440c0 39.8-32.2 72-72 72H168c-39.8 0-72-32.2-72-72V168c0-39.8 32.2-72 72-72H288V32c0-17.7 14.3-32 32-32zM208 384c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H208zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H304zm96 0c-8.8 0-16 7.2-16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H400zM264 256a40 40 0 1 0 -80 0 40 40 0 1 0 80 0zm152 40a40 40 0 1 0 0-80 40 40 0 1 0 0 80zM48 224H64V416H48c-26.5 0-48-21.5-48-48V272c0-26.5 21.5-48 48-48zm544 0c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H576V224h16z"/></g>
+            <g id="i-database"><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></g>
+            <g id="i-arrow-up"><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></g>
+            <g id="i-canva"><path fill-rule="evenodd" d="M16 160a144 144 0 1 0 288 0a144 144 0 1 0-288 0zM151.4 253.6C151.4 253.6 149.6 253.4 147.5 253.3C145.4 253.1 143.1 252.9 142.5 252.8C138.7 252.1 136.8 251.7 135.6 251.4C133.1 250.6 128.1 249 127.2 248.6C126.8 248.4 125.9 248 125.2 247.7C111.5 241.6 100.6 230.8 93.5 216.4C92.7 214.7 92 213.3 92 213.2C92 213.1 91.8 212.5 91.5 211.9C90.6 209.8 88.7 204 87.8 200.5C86.7 196.2 86.4 195 85.6 189.1C84.5 181.9 84.5 165.6 85.5 158.2C86.2 153.1 87.1 147.7 87.8 145.2C89.7 137.5 91.7 131.1 93.5 127.1C93.6 126.8 94.3 125.3 95 123.6C95.7 122 96.7 119.8 97.2 118.9C99.5 114.7 100.3 113.1 100.7 112.7C100.8 112.5 101 112.2 101 112.1C101 111.8 105.2 105.5 107.6 102.4C113.4 94.8 121.2 87.1 128.4 82.1C129.4 81.4 130.6 80.7 131 80.4C132.9 79.1 137.9 76.2 140.6 74.9C144.1 73.2 145.9 72.4 146.9 72.1C147.4 71.9 148.7 71.5 149.6 71.1C150.6 70.7 151.9 70.3 152.6 70.1C158.3 68.6 159.9 68.2 163.2 67.7C169.5 66.6 175 66.3 181.2 66.7C187 67.1 188.5 67.4 194.2 68.8C205.9 71.7 215 78.4 219.6 87.4C220.9 89.8 221.9 93.1 222.4 95.9C223.1 100.5 222.6 108.5 221.2 112.7C218 122.7 212.6 129.7 204.8 134C203.7 134.5 202.7 135 202.5 135C202.3 135 201.8 135.2 201.4 135.4C200.2 136 195.6 136.7 194.3 136.5C191.4 135.9 190.6 135 190.8 132C190.9 130.9 191.1 129.7 191.3 129.1C191.8 128 196.2 118.9 196.5 118.2C196.8 117.6 197.9 114.3 198.5 112.2C200.2 106 200.2 98.2 198.4 92.9C194.3 80.7 180.5 76.2 164.1 81.7C162 82.4 158.7 84 155.3 85.8C151.3 87.9 144.6 93.3 140.7 97.6C137.3 101.2 133.2 106.6 131.3 109.8C130.8 110.5 130.4 111.3 130.2 111.6C130 111.9 129.7 112.4 129.4 112.8C128.6 114.1 124.2 123.1 123.7 124.5C123.6 124.8 123 126.5 122.4 128.1C121.7 129.8 121.1 131.6 120.9 132.2C119.9 135.5 119.5 137 119.1 138.4C118.9 139.2 118.6 140.5 118.4 141.2C117.5 144.8 116.1 152.1 115.9 155C115.8 156 115.5 158.1 115.3 159.5C114.8 163.7 114.6 178.2 115.1 182.9C115.6 188 116.1 191.6 116.6 193.4C116.8 194.2 117 195.2 117 195.6C117 196.1 117.2 196.6 117.4 196.9C117.6 197.2 117.7 197.6 117.7 197.8C117.8 198.5 119.4 203.6 120.4 205.9C127.2 222 137.6 231.3 152.4 234.5C156.5 235.4 165.7 235.4 170.1 234.4C174 233.6 178.3 232.3 180.4 231.4C180.8 231.2 181.3 231 181.4 231C181.7 231 186.3 228.7 187.6 227.9C191.2 225.7 192 225.2 193.8 223.8C201.7 217.9 209.2 209.4 214.9 200C216.4 197.5 216.6 197.1 218.3 193.9C220.4 189.9 221.5 189 223.4 190C225.9 191.2 226.1 195.3 224 201.8C220.4 212.5 212.2 224.8 202.5 233.7C190.2 245 177.1 251.3 162 253.1C159.6 253.4 151.6 253.8 151.4 253.6z"/></g>
+        </defs>
+    </svg>
+
     <!-- Header/Navegação -->
     <header class="navbar">
         <div class="navbar-container">
@@ -26,43 +62,49 @@
                 <a href="#tecnologias" class="nav-link">Tecnologias</a>
                 <!-- <a href="#contato" class="nav-link">Contato</a> -->
                 <a href="https://tiagosegato.github.io/guIA/" target="_blank" class="nav-link">GuIA</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                    <svg class="theme-icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="theme-icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-glow1"></div>
+        <div class="hero-glow2"></div>
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-image-wrapper">
-                    <img src="img/foto-professor-tiagosegato.webp" alt="Professor Tiago Segato usando seu computador em um ambiente aconchegante" class="hero-image">
+                <div class="hero-image-wrapper hero-anim">
+                    <img src="assets/foto-professor-tiagosegato.webp" alt="Professor Tiago Segato usando seu computador em um ambiente aconchegante" class="hero-image" width="800" height="800" fetchpriority="high" decoding="async">
                 </div>
-                <div class="hero-text">
-                    <pre class="json-block">{
-  "name": "tiago segato",
-  "occupation": "professor",
-  "likes": ["ia, web", "mobile", "design"]
-}</pre>
+                <div class="hero-text hero-anim hero-anim-d1">
+                    <pre class="json-block"><span class="jb">{</span>
+  <span class="jk">"name"</span><span class="jp">:</span> <span class="js">"tiago segato"</span><span class="jp">,</span>
+  <span class="jk">"occupation"</span><span class="jp">:</span> <span class="js">"professor"</span><span class="jp">,</span>
+  <span class="jk">"likes"</span><span class="jp">:</span> <span class="jb">[</span><span class="js">"ia, web"</span><span class="jp">,</span> <span class="js">"mobile"</span><span class="jp">,</span> <span class="js">"design"</span><span class="jb">]</span>
+<span class="jb">}</span></pre>
                 </div>
             </div>
-            <div class="social-icons">
+            <div class="social-icons hero-anim hero-anim-d2">
                 <a href="https://www.linkedin.com/in/tiagosegato/" target="_blank" class="social-icon" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
+                    <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-linkedin-in"/></svg>
                 </a>
                 <a href="https://github.com/tiagosegato" target="_blank" class="social-icon" title="GitHub">
-                    <i class="fab fa-github"></i>
+                    <svg class="icon" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><use href="#i-github"/></svg>
                 </a>
                 <a href="https://www.youtube.com/@tiagosegato" target="_blank" class="social-icon" title="YouTube">
-                    <i class="fab fa-youtube"></i>
+                    <svg class="icon" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><use href="#i-youtube"/></svg>
                 </a>
                 <a href="https://www.tiktok.com/@tiagosegato" target="_blank" class="social-icon" title="TikTok">
-                    <i class="fab fa-tiktok"></i>
+                    <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-tiktok"/></svg>
                 </a>
                 <a href="https://www.facebook.com/tiiagosegato/" target="_blank" class="social-icon" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
+                    <svg class="icon" viewBox="0 0 320 512" aria-hidden="true" focusable="false"><use href="#i-facebook-f"/></svg>
                 </a>
                 <a href="https://www.instagram.com/tiagosegato/" target="_blank" class="social-icon" title="Instagram">
-                    <i class="fab fa-instagram"></i>
+                    <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg>
                 </a>
             </div>
         </div>
@@ -71,29 +113,32 @@
     <!-- Aulas Section -->
     <section id="aulas" class="aulas">
         <div class="aulas-container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2 class="section-title">Cursos</h2>
                 <div class="section-line"></div>
             </div>
 
             <!-- Javascript 2026 -->
-            <div class="aula-item">
-                <h3 class="aula-title">Javascript: Lógica de Programação com JS para Inicianates {2026}</h3>
+            <div class="aula-item reveal">
+                <h3 class="aula-title">Javascript: Lógica de Programação com JS para Iniciantes {2026}</h3>
                 <div class="aula-content aula-content-reverse">
                     <div class="aula-text">
                         <p>Aprenda Lógica de Programação com uma das linguagens mais utilizadas no momento.</p>
                         <p>Aulas abordando todos os principais conceitos de lógica aplicados na prática com a linguagem Javascript.</p>
-                        <p>Desenvolvimento de listas de exercícios na prática para um melhor desencolvimento do aprendizado do estudante.</p>
-                        <p><a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_SYWlv_KlIk5JYzMbhg3Ars" target="_blank" class="btn-curso">Curso no YouTube</a>
+                        <p>Desenvolvimento de listas de exercícios na prática para um melhor desenvolvimento do aprendizado do estudante.</p>
+                        <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_SYWlv_KlIk5JYzMbhg3Ars" target="_blank" class="btn-curso">Curso no YouTube</a>
                     </div>
                     <div class="aula-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/XNmuh4gr5mA?si=jRWijUrE7acl3jP7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <a class="yt-facade" href="https://www.youtube.com/watch?v=XNmuh4gr5mA" data-embed="https://www.youtube.com/embed/XNmuh4gr5mA?si=jRWijUrE7acl3jP7" aria-label="Assistir ao vídeo: Javascript: Lógica de Programação com JS para Iniciantes {2026}">
+                            <img src="https://i.ytimg.com/vi/XNmuh4gr5mA/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                            <span class="yt-play" aria-hidden="true"></span>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Inteligência Artificial -->
-            <div class="aula-item">
+            <div class="aula-item reveal">
                 <h3 class="aula-title">Inteligência Artificial</h3>
                 <div class="aula-content">
                     <div class="aula-text">
@@ -102,46 +147,57 @@
                         <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_S55rkFMKfskJw8fWrHqX-0" target="_blank" class="btn-curso">Curso no YouTube</a>
                     </div>
                     <div class="aula-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/2sn40xwbp7o?si=CyHYxYitVvHu8c_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <a class="yt-facade" href="https://www.youtube.com/watch?v=2sn40xwbp7o" data-embed="https://www.youtube.com/embed/2sn40xwbp7o?si=CyHYxYitVvHu8c_2" aria-label="Assistir ao vídeo: Inteligência Artificial">
+                            <img src="https://i.ytimg.com/vi/2sn40xwbp7o/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                            <span class="yt-play" aria-hidden="true"></span>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Web Front-end -->
-            <div class="aula-item">
+            <div class="aula-item reveal">
                 <h3 class="aula-title">Web: Do protótipo com Figma à Implementação com HTML 5 e CSS</h3>
                 <div class="aula-content aula-content-reverse">
                     <div class="aula-text">
                         <p>Transforme sua visão criativa em uma Landing Page profissional, do design à codificação.</p>
                         <p>Com uma metodologia 100% prática, você vai dominar as ferramentas essenciais do mercado: prototipando interfaces modernas no Figma e, em seguida, construindo um site real com HTML5 e CSS3.</p>
                         <p>Ideal para iniciantes que desejam entrar no universo do desenvolvimento web e para quem busca transformar seus designs em projetos de portfólio impactantes.</p>
-                        <p><a href="https://www.udemy.com/course/criando-a-landing-page-perfeita-com-figma/?referralCode=1FC15EC4AAB8CAD15145" target="_blank" class="btn-curso">Curso na Udemy</a>
-                        <a href="https://go.hotmart.com/K103851181X?dp=1" target="_blank" class="btn-curso">Curso na Hotmart</a></p>
+                        <p>
+                            <a href="https://www.udemy.com/course/criando-a-landing-page-perfeita-com-figma/?referralCode=1FC15EC4AAB8CAD15145" target="_blank" class="btn-curso">Curso na Udemy</a>
+                            <a href="https://go.hotmart.com/K103851181X?dp=1" target="_blank" class="btn-curso">Curso na Hotmart</a>
+                        </p>
                     </div>
                     <div class="aula-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/3BLMj8G776I?si=xxmzq3CwUtMBbuj5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <a class="yt-facade" href="https://www.youtube.com/watch?v=3BLMj8G776I" data-embed="https://www.youtube.com/embed/3BLMj8G776I?si=xxmzq3CwUtMBbuj5" aria-label="Assistir ao vídeo: Web: Do protótipo com Figma à Implementação com HTML 5 e CSS">
+                            <img src="https://i.ytimg.com/vi/3BLMj8G776I/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                            <span class="yt-play" aria-hidden="true"></span>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Design -->
-            <div class="aula-item">
+            <div class="aula-item reveal">
                 <h3 class="aula-title">Design com Canva</h3>
                 <div class="aula-content">
                     <div class="aula-text">
                         <p>Se você tem um empreendimento ou quer trabalhar como Social Media, esse é o Curso para você.</p>
                         <p>Aprenda os 3 pilares para transformar a sua marca na web: Redes Sociais, Design e Canva.</p>
-                        <p>No final do curso além de dominar esses 3 pilates você terá todo um arcabouço de modelos prontos para utilizar para sua empresa.</p>
+                        <p>No final do curso além de dominar esses 3 pilares você terá todo um arcabouço de modelos prontos para utilizar para sua empresa.</p>
                         <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_Rkh4fyqFbAEYO83Gb951xt" target="_blank" class="btn-curso">Curso no YouTube</a>
                     </div>
                     <div class="aula-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kHsQDpC_AAY?si=vyfNDffTsqJsy2KS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <a class="yt-facade" href="https://www.youtube.com/watch?v=kHsQDpC_AAY" data-embed="https://www.youtube.com/embed/kHsQDpC_AAY?si=vyfNDffTsqJsy2KS" aria-label="Assistir ao vídeo: Design com Canva">
+                            <img src="https://i.ytimg.com/vi/kHsQDpC_AAY/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                            <span class="yt-play" aria-hidden="true"></span>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Mobile -->
-            <div class="aula-item">
+            <div class="aula-item reveal">
                 <h3 class="aula-title">Mobile: Desenvolva Apps Apple com Swift</h3>
                 <div class="aula-content aula-content-reverse">
                     <div class="aula-text">
@@ -150,7 +206,10 @@
                         <a href="https://tiagosegato.github.io/curso-swift/" target="_blank" class="btn-curso">Saiba mais</a>
                     </div>
                     <div class="aula-video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/qpDPxwZWQxw?si=mociMzvkJ-LC5UlO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <a class="yt-facade" href="https://www.youtube.com/watch?v=qpDPxwZWQxw" data-embed="https://www.youtube.com/embed/qpDPxwZWQxw?si=mociMzvkJ-LC5UlO" aria-label="Assistir ao vídeo: Mobile: Desenvolva Apps Apple com Swift">
+                            <img src="https://i.ytimg.com/vi/qpDPxwZWQxw/maxresdefault.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                            <span class="yt-play" aria-hidden="true"></span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -161,40 +220,40 @@
     <!-- Sobre Section -->
     <section id="sobre" class="sobre">
         <div class="sobre-container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2 class="section-title">Sobre</h2>
                 <div class="section-line"></div>
             </div>
 
             <div class="sobre-content">
                 <div class="sobre-links">
-                    <a href="http://lattes.cnpq.br/3802976697073676" target="_blank" class="link-item">
+                    <a href="http://lattes.cnpq.br/3802976697073676" target="_blank" class="link-item reveal">
                         <span class="link-desc">Professor desde 2006</span>
                         <span class="link-title">Ensino tecnologias há quase de 20 anos.</span>
                     </a>
-                    <a href="http://lattes.cnpq.br/3802976697073676" target="_blank" class="link-item">
+                    <a href="http://lattes.cnpq.br/3802976697073676" target="_blank" class="link-item reveal reveal-d1">
                         <span class="link-desc">Ensino em diversas áreas</span>
                         <span class="link-title">Desenvolvimento Web, Mobile, Design, Banco de Dados e IA</span>
                     </a>
-                    <a href="http://lattes.cnpq.br/3802976697073676" target="_blank" class="link-item">
+                    <a href="http://lattes.cnpq.br/3802976697073676" target="_blank" class="link-item reveal reveal-d1">
                         <span class="link-desc">Titulação</span>
                         <span class="link-title">Mestre (UnB), Especialista (FEF), Licenciado (FATEC) e Graduado (FEF)</span>
                     </a>
-                    <a href="https://gpca-ifb.com.br/" target="_blank" class="link-item">
+                    <a href="https://gpca-ifb.com.br/" target="_blank" class="link-item reveal reveal-d2">
                         <span class="link-desc">GPCA - Grupo de Pesquisa</span>
                         <span class="link-title">Pesquisador no Grupo de Pesquisa em Computação Aplicada - IFB</span>
                     </a>
                 </div>
                 <div class="sobre-links">
-                    <a href="https://nead.ifb.edu.br/course/view.php?id=13754" target="_blank" class="link-item">
+                    <a href="https://nead.ifb.edu.br/course/view.php?id=13754" target="_blank" class="link-item reveal">
                         <span class="link-desc">Coordenador de Curso (2023-2025)</span>
                         <span class="link-title">TSI - Tecnologia em Sistemas para Internet (IFB)</span>
                     </a>
-                    <a href="https://nead.ifb.edu.br/course/view.php?id=13753" target="_blank" class="link-item">
+                    <a href="https://nead.ifb.edu.br/course/view.php?id=13753" target="_blank" class="link-item reveal reveal-d1">
                         <span class="link-desc">Coordenador do Curso de Extensão (2022-2026)</span>
                         <span class="link-title">Desenvolvimento de Aplicativos com a Linguagem Swift</span>
                     </a>
-                    <a href="https://www.generis-publishing.com//book.php?title=intelligent-agent-oriented-solution-for-glycemic-control-of-inpatients-in-icu-388" target="_blank" class="link-item">
+                    <a href="https://www.generis-publishing.com//book.php?title=intelligent-agent-oriented-solution-for-glycemic-control-of-inpatients-in-icu-388" target="_blank" class="link-item reveal reveal-d2">
                         <span class="link-desc">Autor do Livro (2022)</span>
                         <span class="link-title">Intelligent Agent-Oriented Solution for Glycemic Control of Inpatients in ICU</span>
                     </a>
@@ -206,90 +265,72 @@
     <!-- Tecnologias Section -->
     <section id="tecnologias" class="tecnologias">
         <div class="tecnologias-container">
-             <div class="section-header">
+            <div class="section-header reveal">
                 <h2 class="section-title">Principais Tecnologias:</h2>
+                <div class="section-line"></div>
                 <div class="section-text">Caso você tenha interesse em aprender sobre alguma dessas tecnologias comigo, clique nos cards e veja mais.</div>
             </div>
 
             <div class="tecnologias-grid">
-                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_SRG0b4y0Ri3PNqzuKeB24f", target="_blank">
-                <div class="tech-card">
+                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_SRG0b4y0Ri3PNqzuKeB24f" target="_blank" class="tech-card reveal">
                     <div class="tech-icon">
-                        <i class="fab fa-html5"></i>
+                        <svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="#i-html5"/></svg>
                     </div>
                     <h3>HTML</h3>
-                </div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_Rin28JCbc6XQy1wOzMzMiZ", target="_blank">
-                <div class="tech-card">
+                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_Rin28JCbc6XQy1wOzMzMiZ" target="_blank" class="tech-card reveal reveal-d1">
                     <div class="tech-icon">
-                        <i class="fab fa-css3-alt"></i>
+                        <svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="#i-css3-alt"/></svg>
                     </div>
                     <h3>CSS</h3>
-                </div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_SYWlv_KlIk5JYzMbhg3Ars", target="_blank">
-                <div class="tech-card">
+                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_SYWlv_KlIk5JYzMbhg3Ars" target="_blank" class="tech-card reveal reveal-d1">
                     <div class="tech-icon">
-                        <i class="fab fa-js-square"></i>
+                        <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-js-square"/></svg>
                     </div>
                     <h3>Javascript</h3>
-                </div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_QEpLWuhk3wqWOC-TakYNye", target="_blank">
-                <div class="tech-card">
+                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_QEpLWuhk3wqWOC-TakYNye" target="_blank" class="tech-card reveal reveal-d2">
                     <div class="tech-icon">
-                        <i class="fab fa-figma"></i>
+                        <svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="#i-figma"/></svg>
                     </div>
                     <h3>Figma</h3>
-                </div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_QyNQUJ4Bu0hD6TCTKTNrpx", target="_blank">
-                <div class="tech-card">
+                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_QyNQUJ4Bu0hD6TCTKTNrpx" target="_blank" class="tech-card reveal reveal-d2">
                     <div class="tech-icon">
-                        <i class="fas fa-palette"></i>
+                        <svg class="icon" viewBox="7 7 306 306" aria-hidden="true" focusable="false"><use href="#i-canva"/></svg>
                     </div>
                     <h3>Canva</h3>
-                </div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_S55rkFMKfskJw8fWrHqX-0", target="_blank">
-                <div class="tech-card">
+                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_S55rkFMKfskJw8fWrHqX-0" target="_blank" class="tech-card reveal">
                     <div class="tech-icon">
-                        <i class="fa-solid fa-robot"></i>
+                        <svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="#i-robot"/></svg>
                     </div>
                     <h3>Inteligência Artificial</h3>
-                </div>
-                <a href="https://tiagosegato.github.io/curso-swift/", target="_blank">
-                <div class="tech-card">
+                </a>
+                <a href="https://tiagosegato.github.io/curso-swift/" target="_blank" class="tech-card reveal reveal-d1">
                     <div class="tech-icon">
-                        <i class="fab fa-swift"></i>
+                        <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-swift"/></svg>
                     </div>
                     <h3>Swift</h3>
-                </div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_QGRq0vVryGPZXGtQqIjBhq", target="_blank">
-                <div class="tech-card">
+                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_QGRq0vVryGPZXGtQqIjBhq" target="_blank" class="tech-card reveal reveal-d1">
                     <div class="tech-icon">
-                        <i class="fa-brands fa-apple"></i>
+                        <svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="#i-apple"/></svg>
                     </div>
                     <h3>MacOS</h3>
-                </div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_RoxScXHN8PZPZC3hBAzNa_", target="_blank">
-                <div class="tech-card">
+                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_RoxScXHN8PZPZC3hBAzNa_" target="_blank" class="tech-card reveal reveal-d2">
                     <div class="tech-icon">
-                        <i class="fas fa-database"></i>
+                        <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-database"/></svg>
                     </div>
                     <h3>Banco de Dados</h3>
-                </div>
                 </a>
-                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_SXeSd6OjhEc3v0kvzafboH", target="_blank">
-                <div class="tech-card">
+                <a href="https://www.youtube.com/playlist?list=PLfaT9CZbt-_SXeSd6OjhEc3v0kvzafboH" target="_blank" class="tech-card reveal reveal-d2">
                     <div class="tech-icon">
-                        <i class="fa-brands fa-github"></i>
+                        <svg class="icon" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><use href="#i-github"/></svg>
                     </div>
                     <h3>Git e GitHub</h3>
-                </div>
                 </a>
             </div>
         </div>
@@ -298,28 +339,28 @@
     <!-- Contato Section -->
     <section id="contato" class="contato">
         <div class="contato-container">
-            <div class="contato-text">
+            <div class="contato-text reveal">
                 <h2 class="contato-title">Contatos</h2>
-                <p class="contato-subtitle">Utilize a plataforma da sua preferência <br> para entrar em contato e se conectar comigo. </p>
+                <p class="contato-subtitle">Utilize a plataforma da sua preferência <br>para entrar em contato e se conectar comigo.</p>
             </div>
-            <div class="social-icons-rodape">
-                <a href="https://www.linkedin.com/in/tiagosegato/" target="_blank" class="social-icon" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
+            <div class="social-icons-rodape reveal reveal-d1">
+                <a href="https://www.linkedin.com/in/tiagosegato/" target="_blank" class="social-icon-rodape" title="LinkedIn">
+                    <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-linkedin-in"/></svg>
                 </a>
-                <a href="https://github.com/tiagosegato" target="_blank" class="social-icon" title="GitHub">
-                    <i class="fab fa-github"></i>
+                <a href="https://github.com/tiagosegato" target="_blank" class="social-icon-rodape" title="GitHub">
+                    <svg class="icon" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><use href="#i-github"/></svg>
                 </a>
-                <a href="https://www.youtube.com/@tiagosegato" target="_blank" class="social-icon" title="YouTube">
-                    <i class="fab fa-youtube"></i>
+                <a href="https://www.youtube.com/@tiagosegato" target="_blank" class="social-icon-rodape" title="YouTube">
+                    <svg class="icon" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><use href="#i-youtube"/></svg>
                 </a>
-                <a href="https://www.tiktok.com/@tiagosegato" target="_blank" class="social-icon" title="TikTok">
-                    <i class="fab fa-tiktok"></i>
+                <a href="https://www.tiktok.com/@tiagosegato" target="_blank" class="social-icon-rodape" title="TikTok">
+                    <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-tiktok"/></svg>
                 </a>
-                <a href="https://www.facebook.com/tiiagosegato/" target="_blank" class="social-icon" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
+                <a href="https://www.facebook.com/tiiagosegato/" target="_blank" class="social-icon-rodape" title="Facebook">
+                    <svg class="icon" viewBox="0 0 320 512" aria-hidden="true" focusable="false"><use href="#i-facebook-f"/></svg>
                 </a>
-                <a href="https://www.instagram.com/tiagosegato/" target="_blank" class="social-icon" title="Instagram">
-                    <i class="fab fa-instagram"></i>
+                <a href="https://www.instagram.com/tiagosegato/" target="_blank" class="social-icon-rodape" title="Instagram">
+                    <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg>
                 </a>
             </div>
         </div>
@@ -330,8 +371,9 @@
         <p>&copy; 2026 | Tiago Segato</p>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <!-- Voltar ao topo -->
+    <button class="scroll-top" id="scrollTopBtn" aria-label="Voltar ao topo">
+        <svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="#i-arrow-up"/></svg>
+    </button>
 </body>
 </html>
-
