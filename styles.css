@@ -1006,6 +1006,8 @@ body {
 
 /* Último item: "Nunca parar de estudar..." */
 .tl-item.tl-fim .tl-card {
+    display: block;
+    text-decoration: none;
     border-radius: var(--r);
     background: transparent;
     border: 1px dashed var(--text3);
@@ -1021,6 +1023,15 @@ body {
     margin: 0;
     font-size: 1.2rem;
     color: var(--text3);
+}
+
+/* Leva para a página de cursos: contorno e texto ficam azuis ao passar o mouse */
+.tl-item.acad.tl-fim .tl-card:hover {
+    border-color: var(--accent);
+}
+
+.tl-fim .tl-card:hover .tl-titulo {
+    color: var(--accent);
 }
 
 .tl-fim .tl-marker {
