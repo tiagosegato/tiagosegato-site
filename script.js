@@ -159,20 +159,17 @@ document.addEventListener('DOMContentLoaded', () => {
         filtros.forEach(button => {
             button.addEventListener('click', () => {
                 const tecnologia = button.dataset.filtro;
-                let ultimo = null;
+                let algum = false;
 
                 filtros.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
 
                 cursos.forEach(curso => {
                     const mostrar = tecnologia === 'todos' || curso.dataset.tecnologias.split(' ').includes(tecnologia);
                     curso.hidden = !mostrar;
-                    curso.classList.remove('aula-ultima');
-                    if (mostrar) ultimo = curso;
+                    if (mostrar) algum = true;
                 });
 
-                // O último curso visível fica sem a linha divisória embaixo
-                if (ultimo) ultimo.classList.add('aula-ultima');
-                vazio.hidden = ultimo !== null;
+                vazio.hidden = algum;
             });
         });
     }

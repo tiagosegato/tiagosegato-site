@@ -359,15 +359,11 @@ body {
 }
 
 .aula-item {
-    margin-bottom: 4rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--border);
-    transition: border-color .35s;
+    margin-bottom: 6rem;
 }
 
-.aula-item:last-child,
-.aula-item.aula-ultima {
-    border-bottom: none;
+.aula-item:last-child {
+    margin-bottom: 0;
 }
 
 /* Mensagem quando o filtro não encontra cursos */
@@ -481,7 +477,7 @@ body {
     transition: color .35s;
 }
 
-.aula-text p a {
+.aula-text p a:not(.btn-curso) {
     color: var(--accent);
     word-break: break-word;
 }
