@@ -13,6 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Links para seções param logo abaixo do menu fixo
+    // (a altura do menu muda conforme a largura da tela)
+    const navbar = document.querySelector('.navbar');
+
+    function updateScrollPadding() {
+        root.style.scrollPaddingTop = navbar.offsetHeight + 'px';
+    }
+
+    updateScrollPadding();
+    if ('ResizeObserver' in window) {
+        new ResizeObserver(updateScrollPadding).observe(navbar);
+    } else {
+        window.addEventListener('resize', updateScrollPadding);
+    }
+
     // Alternar tema claro/escuro (os ícones são trocados pelo CSS)
     document.getElementById('themeToggle').addEventListener('click', () => {
         const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -93,6 +108,74 @@ document.addEventListener('DOMContentLoaded', () => {
             iframe.focus();
         });
     });
+
+    // Linha do tempo (página Trajetória)
+    const timeline = document.querySelector('.timeline');
+
+    if (timeline) {
+        const items = timeline.querySelectorAll('.tl-item');
+        const filtros = document.querySelectorAll('.filtro');
+
+        // O item em foco (o ponto mais perto do meio da tela) tem o ponto preenchido
+        function updateTimeline() {
+            const middle = window.innerHeight / 2;
+            let closest = null;
+            let closestDistance = Infinity;
+
+            items.forEach(item => {
+                if (!item.offsetParent) return; // escondido pelo filtro
+                const marker = item.querySelector('.tl-marker').getBoundingClientRect();
+                const distance = Math.abs(marker.top + marker.height / 2 - middle);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closest = item;
+                }
+            });
+
+            items.forEach(item => item.classList.toggle('tl-foco', item === closest));
+        }
+
+        timeline.classList.add('tl-js');
+        updateTimeline();
+        window.addEventListener('scroll', updateTimeline, { passive: true });
+        window.addEventListener('resize', updateTimeline);
+
+        filtros.forEach(button => {
+            button.addEventListener('click', () => {
+                filtros.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+                timeline.dataset.filtro = button.dataset.filtro;
+                updateTimeline();
+            });
+        });
+    }
+
+    // Filtro de cursos por tecnologia (página Cursos)
+    const cursos = document.querySelectorAll('.aula-item[data-tecnologias]');
+
+    if (cursos.length) {
+        const filtros = document.querySelectorAll('.filtro');
+        const vazio = document.querySelector('.cursos-vazio');
+
+        filtros.forEach(button => {
+            button.addEventListener('click', () => {
+                const tecnologia = button.dataset.filtro;
+                let ultimo = null;
+
+                filtros.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+
+                cursos.forEach(curso => {
+                    const mostrar = tecnologia === 'todos' || curso.dataset.tecnologias.split(' ').includes(tecnologia);
+                    curso.hidden = !mostrar;
+                    curso.classList.remove('aula-ultima');
+                    if (mostrar) ultimo = curso;
+                });
+
+                // O último curso visível fica sem a linha divisória embaixo
+                if (ultimo) ultimo.classList.add('aula-ultima');
+                vazio.hidden = ultimo !== null;
+            });
+        });
+    }
 
     // Botão voltar ao topo
     const scrollTopBtn = document.getElementById('scrollTopBtn');
